@@ -46,7 +46,7 @@ draco3d.createEncoderModule({}).then(function(module) {
 function modulesInitialized() {
   // Check if both the encoder and decoder modules have been initialized.
   if (encoderModule && decoderModule) {
-    fs.readFile('./modern_house.drc', function(err, data) {
+    fs.readFile('./modern_house.obj', function(err, data) {
       if (err) {
         return console.log(err);
       }
@@ -170,7 +170,7 @@ function encodeMeshToFile(mesh, decoder) {
   encoderModule.destroy(meshBuilder);
   // Write to file. You can view the the file using webgl_loader_draco.html
   // example.
-  fs.writeFile("modern_house_compressed.drc", Buffer.from(outputBuffer), "binary",
+  fs.writeFile("modern_house_compressed.obj", Buffer.from(outputBuffer), "binary",
                function(err) {
     if (err) {
         console.log(err);
